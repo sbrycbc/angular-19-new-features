@@ -1,27 +1,32 @@
 # Angular19NewFeatures
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 18.2.5.
 
-## Development server
+Dieses Projekt wurde erstellt, um die neuen Funktionen in Angular 19 zu testen. Im Folgenden finden Sie kurze Informationen zu einigen der wichtigsten Neuerungen und Änderungen in der neuen Version.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## 1. Hot Module Replacement (HMR)
+Mit Angular 19 wurde die Unterstützung für **Hot Module Replacement** (HMR) standardmäßig aktiviert. Dies ermöglicht Entwicklern, Module zu aktualisieren, ohne die Seite neu zu laden. HMR beschleunigt den Entwicklungsprozess und verbessert die Benutzererfahrung.
 
-## Code scaffolding
+### Was hat sich geändert?
+- Änderungen am Code können sofort angezeigt werden, ohne die Seite neu zu laden.
+- Verbesserte Leistung durch sofortige Aktualisierungen ohne vollständige Seitenaktualisierung.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## 2. Standalone Component Standard auf True
+Mit Angular 19 ist die Option für **Standalone-Components** standardmäßig auf **true** gesetzt. Dadurch können Angular-Komponenten unabhängig von Modulen verwendet werden, was eine flexiblere Struktur ermöglicht. Komponenten können nun direkt und ohne Abhängigkeit von Modulen verwendet werden.
 
-## Build
+### Was hat sich geändert?
+- Komponenten können nun unabhängig definiert und verwendet werden.
+- Keine Notwendigkeit mehr, Module zu verwenden, um Komponenten zu erstellen.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## 3. State of Testing Tooling
+Angular 19 hat die Testwerkzeuge verbessert, um sie stärker und benutzerfreundlicher zu machen. Dies erleichtert das Schreiben von Tests, insbesondere in großen Projekten.
 
-## Running unit tests
+### Was hat sich geändert?
+- Einfachere Integration neuer Testwerkzeuge.
+- Verbesserte Fehlerbehebung und Reporting-Funktionen.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+## 4. Secure from the Start (CSP)
+Angular 19 bietet nun Unterstützung für **Content Security Policy (CSP)**, um die Sicherheitsvorkehrungen von Anwendungen zu verstärken. Dies hilft dabei, Angular-Anwendungen sicherer zu machen.
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+### Was hat sich geändert?
+- Sicherheitsaspekte wurden von Anfang an stärker berücksichtigt.
+- Schutz vor Angriffen durch Richtlinien zur Inhaltsicherheit.
