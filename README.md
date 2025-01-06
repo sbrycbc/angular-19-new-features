@@ -30,3 +30,34 @@ Angular 19 bietet nun Unterstützung für **Content Security Policy (CSP)**, um 
 ### Was hat sich geändert?
 - Sicherheitsaspekte wurden von Anfang an stärker berücksichtigt.
 - Schutz vor Angriffen durch Richtlinien zur Inhaltsicherheit.
+
+## 5. Stabilisierung von Inputs, Outputs und View Queries
+
+Im letzten Jahr haben wir beobachtet, wie Entwickler die neuen APIs für Inputs, Outputs und View Queries nutzen, und wir stabilisieren diese APIs! Um die Einführung dieser neuen APIs zu vereinfachen, haben wir Schematics entwickelt, die Ihre bestehenden Inputs, Outputs und View Queries transformieren:
+
+### Verfügbare Schematics
+- Um die Input-APIs zu migrieren:
+  ```bash
+  ng generate @angular/core:signal-input-migration
+
+- Um die View Queries zu migrieren:
+  ```bash
+  ng generate @angular/core:signal-queries-migration
+
+
+- Um die Output-APIs zu migrieren:
+  ```bash
+  ng generate @angular/core:output-migration
+
+
+### Gesamte Migration
+- Wenn Sie alle Migrationen auf einmal ausführen möchten, verwenden Sie diesen Befehl:
+   ```bash
+   ng generate @angular/core:signals
+
+
+### Wichtiger Hinweis
+Signal-Inputs sind im Gegensatz zu traditionellen Inputs nur lesbar (read-only). Daher müssen Sie möglicherweise Teile Ihrer Anwendung manuell migrieren, wenn Sie Werte für Inputs setzen.
+
+
+
