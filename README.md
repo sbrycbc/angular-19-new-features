@@ -102,6 +102,48 @@ Leistung: Unnötige Anfragen werden vermieden und Daten zwischengespeichert.
 
 ## 7. State of the effects API
 
+## 8. Neue Funktion: Bericht über ungenutzte Importe in Standalone-Komponenten
+
+Mit Angular 19 wurde eine Funktion eingeführt, die automatisch ungenutzte `import`-Anweisungen in **Standalone-Komponenten** erkennt und meldet. Diese Funktion wurde entwickelt, um den Code sauber zu halten und die Leistung durch das Entfernen unnötiger Abhängigkeiten zu optimieren.
+
+### Was macht diese Funktion?
+- In Standalone-Komponenten analysiert Angular CLI die hinzugefügten, aber nicht genutzten `import`-Anweisungen.
+- Nicht genutzte `import`-Anweisungen werden erkannt und dem Entwickler gemeldet.
+- Diese Funktion verhindert die Ansammlung unnötiger Abhängigkeiten in großen Projekten und sorgt für einen saubereren und organisierten Code.
+
+### Vorteile
+1. **Sauberer Code**: Unnötige `import`-Anweisungen werden entfernt, wodurch der Code lesbarer wird.
+2. **Leistungsverbesserung**: Durch das Entfernen ungenutzter Abhängigkeiten werden kleinere Paketgrößen erreicht.
+3. **Fehlerreduzierung**: Falsch hinzugefügte Abhängigkeiten werden erkannt und das Fehlerrisiko wird minimiert.
+
+### Beispiel
+Falls eine Standalone-Komponente einen nicht genutzten `import` enthält, z. B.:
+```typescript
+import { FormsModule } from '@angular/forms'; // Wird nicht verwendet
+import { CommonModule } from '@angular/common';
+
+@Component({
+  selector: 'app-example',
+  standalone: true,
+  imports: [FormsModule, CommonModule],
+  template: '<p>Example works!</p>',
+})
+export class ExampleComponent {}
+
+Wird CLI eine Warnung ausgeben und vorschlagen, FormsModule zu entfernen.
+
+```
+
+### Verwendung
+- Um diese Funktion zu nutzen, führen Sie einfach Ihr Projekt mit Angular CLI aus:
+  ```bash 
+  ng serve
+
+- CLI erkennt ungenutzte Abhängigkeiten und informiert Sie entsprechend.
+
+### Hinweis
+Diese Funktion ist speziell für Standalone-Komponenten und funktioniert standardmäßig nicht bei Modulen.
+
 
 
 
