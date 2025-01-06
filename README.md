@@ -59,5 +59,47 @@ Im letzten Jahr haben wir beobachtet, wie Entwickler die neuen APIs für Inputs,
 ### Wichtiger Hinweis
 Signal-Inputs sind im Gegensatz zu traditionellen Inputs nur lesbar (read-only). Daher müssen Sie möglicherweise Teile Ihrer Anwendung manuell migrieren, wenn Sie Werte für Inputs setzen.
 
+## 6. Neue Funktion: Resources (Ressourcen)
+
+Mit Angular 19 wurde das neue Konzept **Resources** (Ressourcen) eingeführt. Resources ist eine API, die darauf abzielt, die Datenverwaltung, insbesondere API-Anfragen, einfacher und effizienter zu gestalten.
+
+### Was sind Resources?
+- **Resources** ermöglichen eine reaktive und zentralisierte Handhabung von Prozessen wie HTTP-Anfragen in einer Anwendung.
+- Traditionell wurden HTTP-Anfragen mit `HttpClient` oder Drittanbieterbibliotheken verwaltet, was oft zu komplexem Code führte.
+- **Resources** vereinfachen diesen Prozess und verwalten alle Interaktionen (Lesen, Schreiben, Aktualisieren usw.) mit einer Datenquelle.
+
+### Funktionen
+1. **Reaktiv und Einfach**: Alle Vorgänge im Zusammenhang mit Ressourcen können reaktiv definiert und verwaltet werden.
+2. **Zentrale Verwaltung**: Alle CRUD-Operationen (Create, Read, Update, Delete) für eine Ressource werden zentral definiert.
+3. **Leistungsverbesserungen**: Daten werden zwischengespeichert, um unnötige HTTP-Anfragen zu minimieren.
+
+### Beispiel für die Verwendung
+Nachfolgend ein einfaches Beispiel für die Definition und Verwendung einer Resource:
+```typescript
+import { createResource } from '@angular/core';
+
+export const userResource = createResource({
+  getUser: {
+    method: 'GET',
+    url: '/api/user/:id',
+  },
+  updateUser: {
+    method: 'PUT',
+    url: '/api/user/:id',
+  }
+});
+
+// Nutzung
+userResource.getUser({ id: 1 }).subscribe(user => {
+  console.log(user);
+});
+```
+
+### Warum Resources?
+Einfacherer Code: Für HTTP-Operationen wird kein komplexer HttpClient-Code mehr benötigt.
+Reaktivität: Änderungen an Daten werden automatisch in der Benutzeroberfläche reflektiert.
+Leistung: Unnötige Anfragen werden vermieden und Daten zwischengespeichert.
+
+
 
 
