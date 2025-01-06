@@ -1,4 +1,4 @@
-import { Component, ElementRef, input, signal, viewChild, output } from '@angular/core';
+import { Component, ElementRef, input, signal, viewChild, output, effect, Injector } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 
@@ -9,6 +9,8 @@ import { HomeComponent } from './home/home.component';
   template: `
   <h1 #h1el>Angular v19</h1>
   <input [(ngModel)]="userId"/>
+  <input [(ngModel)]="name"/>
+  <button (click)="method()">call method</button>
   <app-home [userId]="userId()"></app-home>
   `,
   styleUrl: './app.component.css'
@@ -20,7 +22,24 @@ export class AppComponent {
   readonly event = output<string>();
   readonly h1el = viewChild.required<ElementRef<HTMLHeadElement>>("h1el");
 
-  constructor() {
+  constructor(private injector: Injector) {
     //this.value.set("Test"); // can not set....
   }
-}
+
+  method() {
+        effect(() => {
+      if (this.userId()) {
+        console.log("delectin some changes in user Id...");
+      }
+    },{injector:this.injector})
+    
+   effect(() => {
+      if (this.name()) {
+        console.log("delectin some changes in user name...");
+      }
+        },{injector:this.injector})
+  }
+  }
+
+
+

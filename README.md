@@ -100,6 +100,8 @@ Einfacherer Code: Für HTTP-Operationen wird kein komplexer HttpClient-Code mehr
 Reaktivität: Änderungen an Daten werden automatisch in der Benutzeroberfläche reflektiert.
 Leistung: Unnötige Anfragen werden vermieden und Daten zwischengespeichert.
 
+## 7. State of the effects API
+
 
 
 
